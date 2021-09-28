@@ -14010,7 +14010,79 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slider */ "./src/js/slider.js");
+/* harmony import */ var _modules_modals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modals */ "./src/js/modules/modals.js");
 
+
+window.addEventListener('DOMContentLoaded', () => {
+  Object(_modules_modals__WEBPACK_IMPORTED_MODULE_1__["default"])('.popup_engineer', '#modal_btn', '[data-close]');
+  Object(_modules_modals__WEBPACK_IMPORTED_MODULE_1__["default"])('.popup', '.phone_link', '[data-close]');
+});
+
+/***/ }),
+
+/***/ "./src/js/modules/modals.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/modals.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const modals = (modalSelector, openButton, closeButton) => {
+  const modal = document.querySelector(modalSelector);
+  const openModalBtn = document.querySelectorAll(openButton);
+  const closeModalBtn = document.querySelectorAll(closeButton);
+
+  function showModals() {
+    modal.classList.add('show');
+    modal.classList.remove('hide');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hideModals() {
+    modal.classList.add('hide');
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  openModalBtn.forEach(item => {
+    item.addEventListener('click', e => {
+      if (e.target) {
+        e.preventDefault();
+      }
+
+      showModals();
+    });
+  });
+  closeModalBtn.forEach(item => {
+    item.addEventListener('click', () => {
+      hideModals();
+    });
+  });
+  modal.addEventListener('click', e => {
+    if (e.target === modal) {
+      hideModals();
+    }
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.classList.contains('show')) {
+      hideModals();
+    }
+  });
+
+  function showModalByTime(selector, time) {
+    const modal = document.querySelector(selector);
+    setTimeout(function () {
+      modal.classList.add('show');
+      modal.classList.remove('hide');
+    }, time);
+  }
+
+  showModalByTime('.popup', 60000);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (modals);
 
 /***/ }),
 
