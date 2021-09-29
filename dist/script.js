@@ -15151,6 +15151,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slider */ "./src/js/slider.js");
 /* harmony import */ var _modules_modals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modals */ "./src/js/modules/modals.js");
 /* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/tabs */ "./src/js/modules/tabs.js");
+/* harmony import */ var _modules_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/forms */ "./src/js/modules/forms.js");
+
 
 
 
@@ -15159,7 +15161,42 @@ window.addEventListener('DOMContentLoaded', () => {
   Object(_modules_modals__WEBPACK_IMPORTED_MODULE_1__["default"])('.popup', '.phone_link', '[data-close]');
   Object(_modules_tabs__WEBPACK_IMPORTED_MODULE_2__["default"])('.glazing_slider', '.glazing_content', '.glazing_block', 'active');
   Object(_modules_tabs__WEBPACK_IMPORTED_MODULE_2__["default"])('.decoration_slider', '.decoration_content > div > div', '.no_click', 'after_click');
+  Object(_modules_forms__WEBPACK_IMPORTED_MODULE_3__["default"])();
 });
+
+/***/ }),
+
+/***/ "./src/js/modules/forms.js":
+/*!*********************************!*\
+  !*** ./src/js/modules/forms.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const forms = () => {
+  const form = document.querySelectorAll('form');
+
+  const postData = async (url, data) => {
+    let result = await fetch(url, {
+      method: 'POST',
+      body: data
+    });
+    return await result.text();
+  };
+
+  form.forEach(item => {
+    item.addEventListener('submit', e => {
+      e.preventDefault();
+      const formData = new FormData(item);
+      postData('/src/assets/server.php', formData).then(res => console.log(res));
+    });
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (forms); // Функция пост даты 
+// событие submit на каждой форме, т.е. на каждом айтеме при переборе. создать formData, передать в нее информацию с каждого item
 
 /***/ }),
 
