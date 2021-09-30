@@ -1,7 +1,14 @@
-const modals = (modalSelector, openButton, closeButton) => {
+const modals = (modalSelector, openButton, closeButton, closeByOverlay = true) => {
     const modal = document.querySelector(modalSelector);
     const openModalBtn = document.querySelectorAll(openButton);
     const closeModalBtn = document.querySelectorAll(closeButton);
+    const modals = document.querySelectorAll('[data-modal]');
+
+    function hideAllModals() {
+        modals.forEach(item => {
+            item.style.display = 'none';
+        });
+    }
 
     function showModals() {
         modal.classList.add('show');
@@ -26,18 +33,21 @@ const modals = (modalSelector, openButton, closeButton) => {
 
     closeModalBtn.forEach(item => {
         item.addEventListener('click', () => {
+            hideAllModals();
             hideModals();
         })
     })
 
     modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
+        if (e.target === modal && closeByOverlay) {
+            hideAllModals();
             hideModals();
         }
     })
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('show')) {
+            hideAllModals();
             hideModals();
         }
     })
