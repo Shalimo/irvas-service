@@ -4,6 +4,7 @@ import tabs from './modules/tabs';
 import forms from './modules/forms';
 import calculator from './modules/calculator';
 import changeModalState from './modules/changeModalState';
+import timer from './modules/timer';
 
 window.addEventListener('DOMContentLoaded' , () => {
     "use strict";
@@ -21,5 +22,7 @@ window.addEventListener('DOMContentLoaded' , () => {
     tabs('.balcon_icons', '[data-btn-img]', '.balcon_icons_img', 'do_image_more', 'inline-block');
     forms(modalState);
     calculator();
+    timer('2021-10-30', '.timer1');
+
     
 });
