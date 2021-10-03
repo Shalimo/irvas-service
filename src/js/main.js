@@ -3,8 +3,13 @@ import modals from './modules/modals';
 import tabs from './modules/tabs';
 import forms from './modules/forms';
 import calculator from './modules/calculator';
+import changeModalState from './modules/changeModalState';
 
 window.addEventListener('DOMContentLoaded' , () => {
+
+    const modalState = {};
+
+    changeModalState(modalState);
     modals('.popup_engineer', '#modal_btn', '[data-close]');
     modals('.popup', '.phone_link', '[data-close]');
     modals('.popup_calc', '.glazing_price_btn', '.popup_calc_close');

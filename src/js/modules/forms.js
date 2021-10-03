@@ -1,14 +1,11 @@
+import checkNum from "./checkNum";
+
 const forms = () => {
 
     const form = document.querySelectorAll('form');
     const inputs = document.querySelectorAll('input');
-    const numInputs = document.querySelectorAll('input[name="user_phone"]');
 
-    numInputs.forEach(item => {
-        item.addEventListener('input', () => {
-            item.value = item.value.replace(/[^\d]/g, '');
-        })
-    })
+    checkNum('input[name="user_phone"]');
 
     const message = {
         loading: 'Загрузка...',
