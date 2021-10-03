@@ -6,7 +6,7 @@ const changeModalState = (state) => {
     const width = document.querySelectorAll('#width');
     const height = document.querySelectorAll('#height');
     const type = document.querySelectorAll('#view_type');
-    const checkBoxProfile = document.querySelectorAll('.checkbox');
+    const checkboxProfile = document.querySelectorAll('.checkbox');
 
     checkNum('#width');
     checkNum('#height');
@@ -44,7 +44,7 @@ const changeModalState = (state) => {
     bindActions(width, 'input', 'width');
     bindActions(height, 'input', 'height');
     bindActions(type, 'change', 'type');
-    bindActions(checkBoxProfile, 'change', 'profile');
+    bindActions(checkboxProfile, 'change', 'profile');
 
 }
 

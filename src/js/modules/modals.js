@@ -3,6 +3,7 @@ const modals = (modalSelector, openButton, closeButton, closeByOverlay = true) =
     const openModalBtn = document.querySelectorAll(openButton);
     const closeModalBtn = document.querySelectorAll(closeButton);
     const modals = document.querySelectorAll('[data-modal]');
+    const submitButtons = document.querySelectorAll('[name="submit"]');
 
     function hideAllModals() {
         modals.forEach(item => {
@@ -50,6 +51,12 @@ const modals = (modalSelector, openButton, closeButton, closeByOverlay = true) =
             hideAllModals();
             hideModals();
         }
+    })
+
+    submitButtons.forEach(item => {
+        item.addEventListener('click', () => {
+            setTimeout(hideModals, 2000);
+        })
     })
 
     function showModalByTime(selector, time) {
