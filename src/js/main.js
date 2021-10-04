@@ -5,6 +5,7 @@ import forms from './modules/forms';
 import calculator from './modules/calculator';
 import changeModalState from './modules/changeModalState';
 import timer from './modules/timer';
+import changeImageSize from './modules/changeImageSize';
 
 window.addEventListener('DOMContentLoaded' , () => {
     "use strict";
@@ -23,6 +24,8 @@ window.addEventListener('DOMContentLoaded' , () => {
     forms(modalState);
     calculator();
     timer('2021-10-30', '.timer1');
+    changeImageSize();
+
 
     
 });
