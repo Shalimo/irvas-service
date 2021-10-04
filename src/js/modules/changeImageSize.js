@@ -18,10 +18,12 @@ const changeImageSize = () => {
             imgBlock.style.display = 'flex';
             const path = e.target.parentNode.getAttribute('href');
             bigImg.setAttribute('src', path);
+            document.body.style.overflow = 'hidden';
         }
 
         if (e.target && e.target.matches('div.popup')) {
             imgBlock.style.display = 'none';
+            document.body.style.overflow = '';
         }
     })
 };
