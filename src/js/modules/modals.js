@@ -64,6 +64,7 @@ const modals = (modalSelector, openButton, closeButton, closeByOverlay = true) =
             setTimeout(function() {
                 modal.classList.add('show');
                 modal.classList.remove('hide');
+                document.body.style.overflow = 'hidden';
         }, time)
     }
 
