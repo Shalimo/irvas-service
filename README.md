@@ -1,6 +1,6 @@
 # Implementation of modules using technical specifications
 
-[Technical specifications]().
+[Technical specifications](https://github.com/Shalimo/irvas-service/blob/main/technical%20specification/TS.pdf).
 
 ## Available Scripts
 
